@@ -51,6 +51,11 @@ endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 function! unite_mfu#writeFileName(countFilename)
+  " disable on Mac, because it crashes call ruby (due to ruby.c?), even in MacVim 7.4.527
+  if system('uname') == "Darwin\n"
+    finish
+  endif
+
   let filename = expand('%:p')
 
   " ignore the count files
