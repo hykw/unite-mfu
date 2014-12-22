@@ -30,11 +30,11 @@ I map the function like these(for me, it's more useful than any MRU plugin)
     " count file is written in this directory
     let g:unite_mfu#count_dir=expand('$HOME/.unite_mfu')
 
-    " How many days the data is valid (in write only)
-    let g:unite_mfu#read_writeFile_days = 2
+    " How many hours the data is valid (in write only)
+    let g:unite_mfu#read_writeFile_hours = 12
 
     " How many days the data is valid (in read only)
-    let g:unite_mfu#read_readFile_days = 1
+    let g:unite_mfu#read_readFile_hours = 6
 
     " How many files, it returns
     let g:unite_mfu#max_return_nums = 10

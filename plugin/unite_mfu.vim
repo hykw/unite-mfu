@@ -18,10 +18,10 @@ if !exists('unite_mfu#count_dir')
   let g:unite_mfu#count_dir=expand('$HOME/.unite_mfu')
 endif
 if !exists('unite_mfu#read_writeFile_days')
-  let g:unite_mfu#read_writeFile_days = 2
+  let g:unite_mfu#read_writeFile_hours = 12
 endif
 if !exists('unite_mfu#read_readFile_days')
-  let g:unite_mfu#read_readFile_days = 1
+  let g:unite_mfu#read_readFile_hours = 6
 endif
 if !exists('unite_mfu#max_return_nums')
   let g:unite_mfu#max_return_nums = 10
@@ -83,16 +83,16 @@ function! s:unite_source.gather_candidates(args, context)
   if len(a:args) > 0
     if a:args[0] == 'writeonly'
       let countFile = s:countFile_write
-      let read_days = g:unite_mfu#read_writeFile_days
+      let read_hours = g:unite_mfu#read_writeFile_hours
     else
       let countFile = s:countFile_read
-      let read_days = g:unite_mfu#read_readFile_days
+      let read_hours = g:unite_mfu#read_readFile_hours
     endif
   endif
 
 ruby << EOL
-keep_history_days = VIM.evaluate('read_days')
-oldest_time = Time.now - (86400*keep_history_days)
+keep_history_hours = VIM.evaluate('read_hours')
+oldest_time = Time.now - (3600*keep_history_hours)
 
 def getTimeObject(datetime)
   date, time = datetime.split(' ')
