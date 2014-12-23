@@ -5,6 +5,7 @@ Vim script for Unite(unite source for Most Frequently Used File)
 
 When you edit/open the file, it write the filename into a file.
 This script count the file, and return the filenames in MFU order.
+Also, at VimLeavePre, it purge the old records from the count files.
 
 ## Usage
 
@@ -38,8 +39,3 @@ I map the function like these(for me, it's more useful than any MRU plugin)
 
     " How many files, it returns
     let g:unite_mfu#max_return_nums = 10
-
-## TODO
-
-    Truncate the old data from the file in the directory(~/.unite_mfu).
-    Now, it just adds the record in the tail(it should be records, in VimLeavePre event?)
