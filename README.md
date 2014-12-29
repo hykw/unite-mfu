@@ -9,33 +9,39 @@ Also, at VimLeavePre, it purge the old records from the count files.
 
 ## Usage
 
-    :Unite mfu:writeonly
-    :Unite mfu:readwrite
+```vim
+:Unite mfu:writeonly
+:Unite mfu:readwrite
+```
 
 ":Unite mfu:writeonly" shows the files which are written recently, 
 ":Unite mfu:readwrite"(or just ":Unite mfu") are the all files.
 
 I map the function like these(for me, it's more useful than any MRU plugin)
 
-    nnoremap [Unite]m :Unite mfu:writeonly<CR>
-    nnoremap [Unite]M :Unite mfu:readwrite<CR>
-    map <Leader>m [Unite]m
-    map <Leader>M [Unite]M
+```vim
+nnoremap [Unite]m :Unite mfu:writeonly<CR>
+nnoremap [Unite]M :Unite mfu:readwrite<CR>
+map <Leader>m [Unite]m
+map <Leader>M [Unite]M
+```
 
 
 ## Option
 
-    " default: 0(1 = count also include just open)
-    g:unite-mfu#count_only_edit=0
+```vim
+" default: 0(1 = count also include just open)
+let g:unite-mfu#count_only_edit=0
 
-    " count file is written in this directory
-    let g:unite_mfu#count_dir=expand('$HOME/.unite_mfu')
+" count file is written in this directory
+let g:unite_mfu#count_dir=expand('$HOME/.unite_mfu')
 
-    " How many hours the data is valid (in write only)
-    let g:unite_mfu#read_writeFile_hours = 12
+" How many hours the data is valid (in write only)
+let g:unite_mfu#read_writeFile_hours = 12
 
-    " How many days the data is valid (in read only)
-    let g:unite_mfu#read_readFile_hours = 6
+" How many days the data is valid (in read only)
+let g:unite_mfu#read_readFile_hours = 6
 
-    " How many files, it returns
-    let g:unite_mfu#max_return_nums = 10
+" How many files, it returns
+let g:unite_mfu#max_return_nums = 10
+```

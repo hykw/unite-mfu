@@ -1,5 +1,5 @@
 " unite-mfu
-" version: 1.1.0
+" version: 1.1.1
 " Author: Hitoshi Hayakawa
 " License: MIT
 "
@@ -59,6 +59,9 @@ function! unite_mfu#writeFileName(countFilename)
   endif
 
   let filename = expand('%:p')
+  if filename == ''
+    return
+  endif
 
   " ignore the count files
   if (filename == s:countFile_read) || (filename == s:countFile_write) || (filename == s:countFile_lastPurged)
