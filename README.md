@@ -20,6 +20,9 @@ Also, at VimLeavePre, it purge the old records from the count files.
 I map the function like these(for me, it's more useful than any MRU plugin)
 
 ```vim
+nnoremap [Unite] <Nop>
+nmap     <Leader>u [Unite]
+
 nnoremap [Unite]m :Unite mfu:writeonly<CR>
 nnoremap [Unite]M :Unite mfu:readwrite<CR>
 map <Leader>m [Unite]m
